@@ -1,71 +1,93 @@
-body {
-    font-family: Arial, Helvetica, sans-serif;
-}
-
 .header {
-    width: 100%;
+    overflow: hidden;
     height: 60px;
-    display: flex;
 }
 
-.header .header__logo {
-    width: 32%;
-    height: 100%;
+.header .toggleIcon {
+    display: none;
+}
+
+.header a {
+    float: left;
+    color: black;
     text-align: center;
+    padding: 14px 10px;
+    text-decoration: none;
+    font-size: 17px;
 }
 
-.header .header__menu {
-    width: 32%;
-    height: 100%;
-    display: flex;
+.header .logoName {
+    font-size: 25px;
+    font-weight: 500;
+
 }
 
-.header__menu>span {
-    width: 20%;
-    margin: auto;
-    text-align: center;
+.header a:hover {
+    background-color: rgb(174, 172, 172);
+    color: black;
 }
 
-.header .header__search {
-    width: 15%;
-    height: 100%;
-    display: flex;
+.header .logoName:hover {
+    background-color: white;
 }
 
-.header__search input[type=text] {
-    height: 60%;
-    width: 70%;
-    font-size: medium;
-    border-radius: 20px;
-    margin-top: auto;
-    margin-bottom: auto;
-    margin-left: auto;
-    margin-right: 0;
-    padding-left: 5%;
+.header .loginIcon {
+    display: none;
 }
 
-.header__search i {
-    margin: auto;
-    border-bottom-right-radius: 20px;
-    border-top-right-radius: 20px;
+
+
+.header a.active {
+    background-color: #04AA6D;
+    color: white;
 }
 
-.header .header__cart {
-    width: 6%;
-    height: 100%;
-    display: flex;
-}
+@media only screen and (max-width: 576px) {
+    .header {
+        overflow: hidden;
+        height: 60px;
+        display: flex;
+    }
 
-.header__cart i {
-    margin: auto;
-}
+    .header button {
+        background-color: white;
+    }
 
-.header .header__login {
-    width: 15%;
-    height: 100%;
-    display: flex;
-}
+    .header .toggleIcon {
+        width: fit-content;
+        display: inline;
+        position: absolute;
+        top: 15px;
+        left: 0;
+    }
 
-.header__login span {
-    margin: auto;
+
+    .header .menu {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        top: 60px;
+    }
+
+    .header .Search {
+        position: absolute;
+        top: 328px;
+    }
+
+    .header .cart {
+        width: fit-content;
+        display: inline;
+        position: absolute;
+        top: 5px;
+        right: 60px;
+    }
+
+    .header .loginIcon {
+        width: fit-content;
+        display: inline;
+        position: absolute;
+        top: 5px;
+        right: 10px;
+    }
 }

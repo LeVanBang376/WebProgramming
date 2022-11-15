@@ -3,9 +3,16 @@ import './styles.css'
 export default function Introduction() {
     return (
         <div class="container">
-            <div class="">
-
-            </div>
+            <p>Anh em cố lên</p>
+            <p>Anh em cố lên</p>
+            <p>Anh em cố lên</p>
+            <p>Anh em cố lên</p>
+            <p>Anh em cố lên</p>
+            <p>Anh em cố lên</p>
+            <p>Anh em cố lên</p>
+            <p>Anh em cố lên</p>
+            <p>Anh em cố lên</p>
+            <p>Anh em cố lên</p>
         </div>
     )
 }
