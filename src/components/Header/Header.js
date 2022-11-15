@@ -1,6 +1,7 @@
 import React from 'react'
 import "./styles.css"
 import logo from "../../assets/images/logo.png"
+import { Link } from 'react-router-dom';
 import { FaUser } from "react-icons/fa"
 export default function Header() {
     return (
@@ -14,9 +15,13 @@ export default function Header() {
             <div>Sản phẩm</div>
             <div>Tin tức</div>
             <div>Liên hệ</div> --> */}
-                <span>Trang chủ</span>
+                <Link to="/">
+					<span class="my-auto">Trang chủ</span>
+				</Link>
                 <span>Giới thiệu</span>
-                <span>Sản phẩm</span>
+                <Link to="/items">
+					<span>Sản phẩm</span>
+				</Link>
                 <span>Tin tức</span>
                 <span>Liên hệ</span>
             </div>
