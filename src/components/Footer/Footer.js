@@ -44,7 +44,7 @@ export default function Footer() {
             </div>
             <div className="footer__lineBreak"></div>
             <div className="footer__right">
-                <p>© 2022 Softdrink. Tất cả các quyền được bảo lưu</p>
+                <p>© 2022 Nhóm 1. Tất cả các quyền được bảo lưu</p>
             </div>
         </div>
     )
