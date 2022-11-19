@@ -1,0 +1,75 @@
+.footer {
+    width: 100%;
+    height: 400px;
+    background-color: rgb(19, 19, 19);
+    display: flex;
+    flex-direction: column;
+    color: white;
+    font-size: 15px;
+}
+
+.footer .footer__information {
+    width: 100%;
+    flex-grow: 1;
+    padding-left: 5%;
+    padding-right: 5%;
+    display: flex;
+}
+
+.footer__information .footer__ContactInfo {
+    width: 25%;
+    margin-top: 20px;
+}
+
+.footer__ContactInfo i {
+    width: 20px;
+    text-align: center;
+    margin-right: 2px;
+}
+
+.footer__ContactInfo .footer__ContactInfo__facebook {
+    width: 30px;
+    height: 30px;
+    border-radius: 10px;
+    background-image: url('../../assets/images/facebook.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.footer__information .footer__pay--ship {
+    width: 25%;
+    margin-top: 20px;
+}
+
+.footer__pay--ship .footer__pay__img,
+.footer__ship__img {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.footer__pay__img div {
+    width: 55px;
+    height: 25px;
+    margin: 5px;
+    background-color: white;
+}
+
+.footer__ship__img div {
+    width: 55px;
+    height: 25px;
+    margin: 5px;
+    background-color: white;
+}
+
+.footer .footer__lineBreak {
+    width: 100%;
+    height: 1px;
+    background-color: white;
+}
+
+.footer .footer__right {
+    height: fit-content;
+    padding: 10px;
+    padding-left: 5%;
+}
