@@ -1,71 +1,223 @@
-body {
-    font-family: Arial, Helvetica, sans-serif;
-}
-
 .header {
-    width: 100%;
+    overflow: hidden;
     height: 60px;
-    display: flex;
+    font-size: 15px;
 }
 
-.header .header__logo {
-    width: 32%;
-    height: 100%;
+.header .logoName:hover {
+    background-color: white;
+}
+
+.header .toggleIconContainer {
+    display: none;
+}
+
+.header a {
+    color: black;
     text-align: center;
+    padding: 20px 10px 8px 10px;
+    text-decoration: none;
+    font-weight: 400;
 }
 
-.header .header__menu {
-    width: 32%;
-    height: 100%;
-    display: flex;
+.header .logoName {
+    font-size: 25px;
+    font-weight: 500;
+    padding: 10px 10px 18px 10px;
 }
 
-.header__menu>span {
-    width: 20%;
-    margin: auto;
-    text-align: center;
+.header a:hover {
+    background-color: rgb(174, 172, 172);
+    color: black;
 }
 
-.header .header__search {
-    width: 15%;
-    height: 100%;
-    display: flex;
+.header .searchIconContainer {
+    display: none;
 }
 
-.header__search input[type=text] {
-    height: 60%;
-    width: 70%;
-    font-size: medium;
-    border-radius: 20px;
-    margin-top: auto;
-    margin-bottom: auto;
-    margin-left: auto;
-    margin-right: 0;
-    padding-left: 5%;
+.header .loginIcon {
+    display: none;
 }
 
-.header__search i {
-    margin: auto;
-    border-bottom-right-radius: 20px;
-    border-top-right-radius: 20px;
+.header a.active {
+    background-color: #04AA6D;
+    color: white;
 }
 
-.header .header__cart {
-    width: 6%;
-    height: 100%;
-    display: flex;
+@media only screen and (max-width: 576px) {
+    .header {
+        overflow: hidden;
+        height: 65.5px;
+        display: flex;
+    }
+
+    .header a {
+        color: black;
+        text-align: center;
+        padding: 12px 10px;
+        text-decoration: none;
+        font-weight: 400;
+    }
+
+    .header button.notActiveButton {
+        background-color: white;
+        border: none;
+    }
+
+    .header button.activeButton {
+        background-color: gainsboro;
+    }
+
+    .header .toggleIconContainer {
+        width: fit-content;
+        display: inline;
+        position: absolute;
+        top: 15px;
+        left: 0;
+    }
+
+    .header .logoName {
+        font-size: 25px;
+        font-weight: 500;
+        padding: 14px 10px;
+    }
+
+    .header .menu1 {
+        display: none;
+    }
+
+    .header .menu2 {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        top: 55px;
+        left: 0;
+        background-color: gainsboro;
+    }
+
+    .header .searchIconContainer {
+        display: none;
+    }
+
+    .header .Search1 {
+        display: none;
+    }
+
+    .header .Search2 {
+        position: absolute;
+        height: 50px;
+        top: 285px;
+        left: 0;
+        background-color: gainsboro;
+    }
+
+    .header .cart {
+        width: fit-content;
+        display: inline;
+        position: absolute;
+        top: 5px;
+        right: 60px;
+    }
+
+    .header .loginIcon {
+        width: fit-content;
+        display: inline;
+        position: absolute;
+        top: 5px;
+        right: 10px;
+    }
 }
 
-.header__cart i {
-    margin: auto;
-}
+@media only screen and (min-width: 576px) and (max-width: 992px) {
+    .header {
+        overflow: hidden;
+        height: 65.5px;
+        display: flex;
+    }
 
-.header .header__login {
-    width: 15%;
-    height: 100%;
-    display: flex;
-}
+    .header a {
+        color: black;
+        text-align: center;
+        padding: 12px 10px;
+        text-decoration: none;
+        font-weight: 400;
+    }
 
-.header__login span {
-    margin: auto;
+    .header .logoName {
+        font-size: 25px;
+        font-weight: 500;
+        padding: 14px 10px;
+    }
+
+    .header button.notActiveButton {
+        background-color: white;
+        border: none;
+    }
+
+    .header button.activeButton {
+        background-color: gainsboro;
+    }
+
+    .header .toggleIconContainer {
+        width: fit-content;
+        display: inline;
+        position: absolute;
+        top: 15px;
+        left: 0;
+    }
+
+    .header .menu1 {
+        display: none;
+    }
+
+    .header .menu2 {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        top: 55px;
+        left: 2px;
+        background-color: gainsboro;
+    }
+
+    .header .searchIconContainer {
+        width: fit-content;
+        display: inline;
+        position: absolute;
+        top: 17px;
+        right: 115px;
+    }
+
+    .searchButton {
+        border: none;
+        background-color: white;
+    }
+
+    .header .Search1 {
+        display: none;
+    }
+
+    .header .Search3 {
+        position: absolute;
+        width: 200px;
+        right: 170px;
+        top: 10px;
+    }
+
+    .header .cart {
+        width: fit-content;
+        display: inline;
+        position: absolute;
+        top: 5px;
+        right: 60px;
+    }
+
+    .header .loginIcon {
+        width: fit-content;
+        display: inline;
+        position: absolute;
+        top: 5px;
+        right: 10px;
+    }
 }
