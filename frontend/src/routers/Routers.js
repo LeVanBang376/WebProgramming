@@ -6,6 +6,7 @@ import Contact from '../pages/Contact/Contact'
 import News from '../pages/News/News'
 import Login from '../pages/Login/Login'
 import Cart from '../pages/Cart/Cart'
+import Signup from '../pages/Signup/Signup'
 export default function Routers() {
     return (
         <Routes>
