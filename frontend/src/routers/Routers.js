@@ -18,6 +18,8 @@ import ManageUsers from '../admin_pages/ManageUsers/ManageUsers'
 import UserDetail from '../admin_pages/UserDetail/UserDetail'
 import Checkout from '../pages/Checkout/Checkout'
 import AdminContact from '../admin_pages/Contact/Contact'
+import ProductInfoAdmin from '../pages/Products/ProductInfoAdmin'
+import ProductInfo from '../pages/Products/ProductInfo'
 export default function Routers() {
     return (
         < Routes >
@@ -25,6 +27,7 @@ export default function Routers() {
             <Route path="/" element={<Home />} />
             <Route path="/Introduction" element={<Introduction />} />
             <Route path="/Products" element={<Products />} />
+            <Route path="/Checkout" element={<Checkout />} />
             <Route path="/News" element={<News />} />
             <Route path="/Contact" element={<Contact />} />
             <Route path="/Login" element={<Login />} />
@@ -34,6 +37,7 @@ export default function Routers() {
             <Route path="/Information" element={<Information />} />
             <Route path="/ChangePassword" element={<ChangePassword />} />
             <Route path="/ChangeInformation" element={<ChangeInformation />} />
+            <Route path="/Products/:id" element={<ProductInfo />} />
             {/* Admin */}
             <Route path="/Admin/" element={<AdminHome />} />
             <Route path="/Admin/Introduction" element={<AdminIntroduction />} />
@@ -41,6 +45,8 @@ export default function Routers() {
             <Route path="/Admin/ManageUsers" element={<ManageUsers />} />
             <Route path="/Admin/UserDetail/:userID" element={<UserDetail />} />
             <Route path="/Admin/Contact" element={<AdminContact />} />
+            <Route path="/Admin/Products" element={<Products />} />
+            <Route path="/Admin/Products/:id" element={<ProductInfoAdmin />} />
         </Routes >
     )
 }
