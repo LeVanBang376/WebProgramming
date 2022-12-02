@@ -1,75 +1,49 @@
 import React from 'react'
 import Tra from '../../assets/images/traxanh0do.png'
-import Chainuoc from '../../assets/images/chai_tra_xanh_0_do.jpg'
+import introductionImg from '../../assets/images/home_introduction.png'
+
+import HomeNews from '../../components/HomeNews/HomeNews'
+import HomeProduct from '../../components/HomeProduct/HomeProduct'
 export default function Home() {
     return (
-        <div className="container-fluid ">
+        <div className="container-fluid">
             {/* Bức ảnh full  */}
             <div className="row">
                 <div className="col p-0">
                     <img src={Tra} alt="Tra xanh 0 do" width="100%" height="auto" />
                 </div>
             </div>
-            {/* Các sản phẩm bán chạy */}
-            <div className="row m-0 ">
-                <div className="col p-0">
-                    <div className="row pt-5 pb-5">
-                        <div className="col">
-                            <h1 className="text-center">Our bestsellers</h1>
-                        </div>
-                    </div>
-                    <div className="row text-center">
-                        <div className="col">
-                            <div className="row">
-                                <img src={Chainuoc} alt="Tra xanh 0 do" width="100%" height="auto" />
-                            </div>
-                            <div className="row pt-3 pb-1">
-                                <h3>Trà xanh 0 độ</h3>
-                            </div>
-                            <div className="row">
-                                <p>50.000đ</p>
-                            </div>
-                        </div>
-                        <div className="col">
-                            <div className="row">
-                                <img src={Chainuoc} alt="Tra xanh 0 do" width="100%" height="auto" />
-                            </div>
-                            <div className="row pt-3 pb-1">
-                                <h3>Trà xanh 0 độ</h3>
-                            </div>
-                            <div className="row">
-                                <p>50.000đ</p>
-                            </div>
-                        </div>
-                        <div className="col">
-                            <div className="row">
-                                <img src={Chainuoc} alt="Tra xanh 0 do" width="100%" height="auto" />
-                            </div>
-                            <div className="row pt-3 pb-1">
-                                <h3>Trà xanh 0 độ</h3>
-                            </div>
-                            <div className="row">
-                                <p>50.000đ</p>
-                            </div>
-                        </div>
-                        <div className="col">
-                            <div className="row">
-                                <img src={Chainuoc} alt="Tra xanh 0 do" width="100%" height="auto" />
-                            </div>
-                            <div className="row pt-3 pb-1">
-                                <h3>Trà xanh 0 độ</h3>
-                            </div>
-                            <div className="row">
-                                <p>50.000đ</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="row pb-5 justify-content-center">
-                        <div className="col-2 text-center">
-                            <button type="button" className="btn btn-outline-dark btn-lg">Buy now</button>
-                        </div>
-                    </div>
+            {/* Giới thiệu về chúng tôi */}
+            <div className='row bg-light p-5'>
+                <div className='col-md-6'>
+                    <h1>Giới thiệu về chúng tôi</h1>
+                    <hr />
+                    <p>Nhóm 1 là một nhóm của lớp L03 môn Lập trình Web thí nghiệm. Nhóm này được thành lập là để làm bài tập lớn.</p>
                 </div>
+
+                <div className='col-md-6'>
+                    <img src={introductionImg} className='img-fluid' alt='Giới thiệu' />
+                </div>
+            </div>
+
+            {/* Tin tức mới nhất */}
+            <div className='row p-5'>
+                <div className='d-flex justify-content-between align-items-center'>
+                    <h1>Tin tức mới nhất</h1>
+                    <p>Xem tất cả</p>
+                </div>
+                <hr />
+                <HomeNews />
+                <HomeNews />
+                <HomeNews />
+            </div>
+
+            {/* Sản phẩm bán chạy */}
+            <div className='row p-5'>
+                <div className='col-3'>
+                    <HomeProduct />
+                </div>
+
             </div>
         </div>
 

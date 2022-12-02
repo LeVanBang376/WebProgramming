@@ -2,22 +2,23 @@ import React from 'react'
 import { useNavigate } from "react-router-dom";
 import './styles.css'
 import loginImg from '../../assets/images/loginImage.png'
+import { Link } from 'react-router-dom';
+import axios from 'axios'
 // import { FaFacebookF } from 'react-icons/fa'
 export default function Login() {
     const navigate = useNavigate();
     const [accountName, setAccountName] = React.useState('')
     const [password, setPassword] = React.useState('')
-    const handleLogin = () => {
-
-        if (accountName === 'kiet') {
-            if (password === 'kiet') {
-                navigate('/')
-            } else {
-                alert('Sai mật khẩu')
-            }
-        } else {
-            alert('Tên đăng nhập không tồn tại')
+    const handleLogin = async (e) => {
+        e.preventDefault();
+        const formData = new FormData(e.target)
+        const data = {
+            username: formData.get("username"),
+            password: formData.get("password")
         }
+        await axios
+            .post()
+            .then((res) => { })
     }
 
     return (
@@ -72,8 +73,9 @@ export default function Login() {
 
                         <div class="text-center text-lg-start mt-4 pt-2">
                             <button type="button" className="btn btn-primary btn-lg" onClick={handleLogin}>Đăng nhập</button>
-                            <p class="small fw-bold mt-2 pt-1 mb-0">Chưa có tài khoản? <a href="#!"
-                                class="link-danger">Đăng ký</a></p>
+                            <p class="small fw-bold mt-2 pt-1 mb-0">Chưa có tài khoản?
+                                <Link to="/Signup" className='link-danger'>Đăng ký</Link>
+                            </p>
                         </div>
 
                     </form>
