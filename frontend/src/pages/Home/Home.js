@@ -43,7 +43,6 @@ export default function Home() {
                 <div className='col-3'>
                     <HomeProduct />
                 </div>
-
             </div>
         </div>
 
