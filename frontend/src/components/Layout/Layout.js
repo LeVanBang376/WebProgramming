@@ -6,7 +6,7 @@ import Routers from '../../routers/Routers'
 export default function Layout() {
   return (
     <>
-      <Header role="" />
+      <Header />
       <div>
         <Routers />
       </div>

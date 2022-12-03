@@ -1,21 +1,35 @@
-import React from 'react'
-
+import React, { useState, useEffect } from 'react'
+import { useLocation } from 'react-router-dom'
 import './styles.css'
-import { Link, NavLink } from 'react-router-dom'
+import { Link, NavLink, useNavigate } from 'react-router-dom'
 
 import { BsCart, BsList, BsPersonCircle, BsSearch } from 'react-icons/bs'
 import { IconContext } from 'react-icons'
 import Dropdown from 'react-bootstrap/Dropdown';
 
-export default function Header(props) {
-    const role = props?.role
+export default function Header() {
+    const location = useLocation();
+    const initialState = JSON.parse(localStorage.getItem('profile'));
+    const [user, setUser] = useState(initialState);
+    const navigate = useNavigate();
+    useEffect(() => {
+        setUser(initialState)
+    }, [location]);
+
     const [clicked, setClicked] = React.useState(false)
     const [searchClicked, setSearchClicked] = React.useState(false)
+
     const handleClick = () => {
         clicked ? setClicked(false) : setClicked(true)
     }
     const handleSearchClick = () => {
         searchClicked ? setSearchClicked(false) : setSearchClicked(true)
+    }
+
+    const handleLogout = () => {
+        localStorage.clear()
+        setUser(null)
+        navigate("/Login")
     }
 
     return (
@@ -58,7 +72,7 @@ export default function Header(props) {
                             </IconContext.Provider>
                         </NavLink>
                     </div>
-                    {role === ""
+                    {!user
                         ? (
                             <>
                                 <div className='col-xxl-2 col-xl-2 col-lg-2 d-flex justify-content-center loginTextDisappear'>
@@ -75,14 +89,14 @@ export default function Header(props) {
                         : (
                             <div className='col-xxl-2 col-xl-2 col-lg-2 username d-flex justify-content-center align-items-center'>
                                 <Dropdown>
+                                    <div class="text-primary">{user.username}</div>
                                     <Dropdown.Toggle id="dropdown-basic">
-                                        <div className='hiddenUserName'>{role}</div>
+
                                     </Dropdown.Toggle>
 
                                     <Dropdown.Menu>
-                                        <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-                                        <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-                                        <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+                                        <Dropdown.Item><Link to="/Login" role="button" class="btn">Change Account</Link></Dropdown.Item>
+                                        <Dropdown.Item><p role="button" class="text-danger" onClick={handleLogout}>logout</p></Dropdown.Item>
                                     </Dropdown.Menu>
                                 </Dropdown>
                             </div>

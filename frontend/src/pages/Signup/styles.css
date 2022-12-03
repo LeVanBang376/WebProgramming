@@ -1,7 +1,13 @@
-.bg {
-    background-color: #eee;
-}
-
 .bd {
     border-radius: 25px;
+    margin-top: 25px;
+}
+
+.bd .error1 {
+    color: red;
+    display: none;
+}
+
+.bd .error2 {
+    color: red;
 }
