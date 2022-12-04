@@ -37,7 +37,7 @@ export default function Header(props) {
                     <div className={clicked ? "col-xxl-4 col-xl-5 col-lg-5 d-flex justify-content-between menu2" : "col-xxl-4 col-xl-5 col-lg-5 d-flex justify-content-between menu1"} >
                         <NavLink to="/" avtiveclassname="active" exact="true">Trang chủ</NavLink>
                         <NavLink to="/Introduction" avtiveclassname="active" >Giới thiệu</NavLink>
-                        <NavLink to="/Product" avtiveclassname="active">Sản phẩm</NavLink>
+                        <NavLink to="/Products" avtiveclassname="active">Sản phẩm</NavLink>
                         <NavLink to="/News" avtiveclassname="active">Tin tức</NavLink>
                         <NavLink to="/Contact" avtiveclassname="active">Liên hệ</NavLink>
                     </div>
