@@ -1,0 +1,30 @@
+.Products .slider {
+    background: url('../../assets/images/slider_news.jpg') top center / cover no-repeat;
+    height: 20rem;
+    color: white;
+    font-weight: 500;
+    padding-top: 130px;
+    letter-spacing: 8px;
+}
+
+.Products .container {
+    margin-top: 20px;
+}
+
+@media (max-width: 767px) {
+    .Products .container {
+        margin-top: 0;
+    }
+}
+
+.price {
+    font-size: 1em;
+}
+
+.fas.fa-shopping-basket {
+    font-size: 1.5em;
+}
+
+span {
+    margin-left: 10px;
+}
