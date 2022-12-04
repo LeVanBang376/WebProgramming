@@ -31,13 +31,14 @@ export default function Login() {
             .then((res) => {
                 setErr('')
                 localStorage.setItem('profile', JSON.stringify(res.data.data));
-                navigate('/');
+                if (res.data.data.role === 'user')
+                    navigate('/')
+                else navigate('/Admin/')
             })
             .catch((err) => {
                 setErr(err.response.data.message)
             })
     }
-
     return (
         <div class="container-fluid h-custom mb-2">
             <div class="row d-flex justify-content-center align-items-center h-100">
