@@ -101,7 +101,7 @@ export default function Signup() {
         form.gender = sex
         checkInput()
         if (success) {
-            await axios.post(BASE_URL + '/users/signup', form, {
+            await axios.post(BASE_URL + '/auth/signup', form, {
                 crossDomain: true,
                 headers: {
                     'Accept': 'application/json',

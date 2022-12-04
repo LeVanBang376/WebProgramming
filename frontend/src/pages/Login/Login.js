@@ -21,7 +21,7 @@ export default function Login() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        await axios.post(BASE_URL + '/users/login', form, {
+        await axios.post(BASE_URL + '/auth/login', form, {
             crossDomain: true,
             headers: {
                 'Accept': 'application/json',

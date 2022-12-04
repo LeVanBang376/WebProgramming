@@ -116,7 +116,7 @@ export default function Header() {
                                     </NavLink>
                                 </div>
                             </>)
-                        : (
+                        : [user.role === 'admin' ? (
                             <div className='col-xxl-2 col-xl-2 col-lg-2 username d-flex justify-content-center align-items-center'>
                                 <Dropdown>
                                     <Dropdown.Toggle id="dropdown-basic">
@@ -129,7 +129,20 @@ export default function Header() {
                                     </Dropdown.Menu>
                                 </Dropdown>
                             </div>
-                        )}
+                        ) : (
+                            <div className='col-xxl-2 col-xl-2 col-lg-2 username d-flex justify-content-center align-items-center'>
+                                <Dropdown>
+                                    <Dropdown.Toggle id="dropdown-basic">
+                                        {user.username}
+                                    </Dropdown.Toggle>
+
+                                    <Dropdown.Menu>
+                                        <Dropdown.Item><Link to="/Information" state={user}>Thông tin cá nhân</Link></Dropdown.Item>
+                                        <Dropdown.Item onClick={handleLogout}>Đăng xuất</Dropdown.Item>
+                                    </Dropdown.Menu>
+                                </Dropdown>
+                            </div>)
+                        ]}
                 </div>
             </div >
         </div >
