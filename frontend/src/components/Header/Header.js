@@ -1,16 +1,24 @@
-import React from 'react'
-
+import React, { useState, useEffect } from 'react'
+import { useLocation } from 'react-router-dom'
 import './styles.css'
-import { Link, NavLink } from 'react-router-dom'
+import { Link, NavLink, useNavigate } from 'react-router-dom'
 
 import { BsCart, BsList, BsPersonCircle, BsSearch } from 'react-icons/bs'
 import { IconContext } from 'react-icons'
 import Dropdown from 'react-bootstrap/Dropdown';
 
-export default function Header(props) {
-    const role = props?.role
+export default function Header() {
+    const location = useLocation();
+    const initialState = JSON.parse(localStorage.getItem('profile'));
+    const [user, setUser] = useState(initialState);
+    const navigate = useNavigate();
+    useEffect(() => {
+        setUser(initialState)
+    }, [location]);
+
     const [clicked, setClicked] = React.useState(false)
     const [searchClicked, setSearchClicked] = React.useState(false)
+
     const handleClick = () => {
         clicked ? setClicked(false) : setClicked(true)
     }
@@ -18,6 +26,11 @@ export default function Header(props) {
         searchClicked ? setSearchClicked(false) : setSearchClicked(true)
     }
 
+    const handleLogout = () => {
+        localStorage.clear()
+        setUser(null)
+        navigate("/Login")
+    }
     return (
         <div className='header'>
             <div className='container-fluid'>
@@ -30,16 +43,47 @@ export default function Header(props) {
                         </button>
                     </div>
                     <div className='col-xxl-3 col-xl-2 col-lg-2 col-10 d-flex justify-content-center'>
-                        <Link className='logoName' to="/" exact="true" >
-                            Nhóm 1
-                        </Link>
+                        {!user ?
+                            (<Link className='logoName' to="/" exact="true" >
+                                Nhóm 1
+                            </Link>)
+                            : [user.role === 'admin' ?
+                                (<Link className='logoName' to="/Admin/" exact="true" >
+                                    Nhóm 1
+                                </Link>)
+                                : (<Link className='logoName' to="/" exact="true" >
+                                    Nhóm 1
+                                </Link>)
+                            ]
+                        }
                     </div>
                     <div className={clicked ? "col-xxl-4 col-xl-5 col-lg-5 d-flex justify-content-between menu2" : "col-xxl-4 col-xl-5 col-lg-5 d-flex justify-content-between menu1"} >
-                        <NavLink to="/" avtiveclassname="active" exact="true">Trang chủ</NavLink>
-                        <NavLink to="/Introduction" avtiveclassname="active" >Giới thiệu</NavLink>
-                        <NavLink to="/Products" avtiveclassname="active">Sản phẩm</NavLink>
-                        <NavLink to="/News" avtiveclassname="active">Tin tức</NavLink>
-                        <NavLink to="/Contact" avtiveclassname="active">Liên hệ</NavLink>
+                        {!user ?
+                            (<>
+                                <NavLink to="/" avtiveclassname="active" exact="true">Trang chủ</NavLink>
+                                <NavLink to="/Introduction" avtiveclassname="active" >Giới thiệu</NavLink>
+                                <NavLink to="/Products" avtiveclassname="active">Sản phẩm</NavLink>
+                                <NavLink to="/News" avtiveclassname="active">Tin tức</NavLink>
+                                <NavLink to="/Contact" avtiveclassname="active">Liên hệ</NavLink>
+                            </>)
+                            : [user.role === 'admin' ?
+                                (<>
+                                    <NavLink to="/Admin/" avtiveclassname="active" exact="true">Trang chủ</NavLink>
+                                    <NavLink to="/Admin/Introduction" avtiveclassname="active" >Giới thiệu</NavLink>
+                                    <NavLink to="/Admin/Products" avtiveclassname="active">Sản phẩm</NavLink>
+                                    <NavLink to="/Admin/News" avtiveclassname="active">Tin tức</NavLink>
+                                    <NavLink to="/Admin/Contact" avtiveclassname="active">Liên hệ</NavLink>
+                                </>)
+                                : (<>
+                                    <NavLink to="/" avtiveclassname="active" exact="true">Trang chủ</NavLink>
+                                    <NavLink to="/Introduction" avtiveclassname="active" >Giới thiệu</NavLink>
+                                    <NavLink to="/Products" avtiveclassname="active">Sản phẩm</NavLink>
+                                    <NavLink to="/News" avtiveclassname="active">Tin tức</NavLink>
+                                    <NavLink to="/Contact" avtiveclassname="active">Liên hệ</NavLink>
+                                </>)
+                            ]
+                        }
+
                     </div>
                     <div className='searchIconContainer'>
                         <button className={searchClicked ? "activeButton" : "notActiveButton"} onClick={() => handleSearchClick()} >
@@ -58,7 +102,7 @@ export default function Header(props) {
                             </IconContext.Provider>
                         </NavLink>
                     </div>
-                    {role === ""
+                    {!user
                         ? (
                             <>
                                 <div className='col-xxl-2 col-xl-2 col-lg-2 d-flex justify-content-center loginTextDisappear'>
@@ -72,21 +116,33 @@ export default function Header(props) {
                                     </NavLink>
                                 </div>
                             </>)
-                        : (
+                        : [user.role === 'admin' ? (
                             <div className='col-xxl-2 col-xl-2 col-lg-2 username d-flex justify-content-center align-items-center'>
                                 <Dropdown>
                                     <Dropdown.Toggle id="dropdown-basic">
-                                        <div className='hiddenUserName'>{role}</div>
+                                        {user.username}
                                     </Dropdown.Toggle>
 
                                     <Dropdown.Menu>
-                                        <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-                                        <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-                                        <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+                                        <Dropdown.Item onClick={() => navigate("/Admin/ManageUsers")}>Quản lý người dùng</Dropdown.Item>
+                                        <Dropdown.Item onClick={handleLogout}>Đăng xuất</Dropdown.Item>
                                     </Dropdown.Menu>
                                 </Dropdown>
                             </div>
-                        )}
+                        ) : (
+                            <div className='col-xxl-2 col-xl-2 col-lg-2 username d-flex justify-content-center align-items-center'>
+                                <Dropdown>
+                                    <Dropdown.Toggle id="dropdown-basic">
+                                        {user.username}
+                                    </Dropdown.Toggle>
+
+                                    <Dropdown.Menu>
+                                        <Dropdown.Item><Link to="/Information" state={user}>Thông tin cá nhân</Link></Dropdown.Item>
+                                        <Dropdown.Item onClick={handleLogout}>Đăng xuất</Dropdown.Item>
+                                    </Dropdown.Menu>
+                                </Dropdown>
+                            </div>)
+                        ]}
                 </div>
             </div >
         </div >
