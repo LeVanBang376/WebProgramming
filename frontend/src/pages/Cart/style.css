@@ -16,6 +16,7 @@ a, a:hover, a:focus {
 }
 .card-body {
     padding: 30px;
+    align-items: center;
 }
 .btn-danger {
     border-color: #FF2829!important;
