@@ -13,11 +13,6 @@ export default function ManageUsers() {
 
     const getUsers = async (e) => {
         await axios.get(BASE_URL + '/user/getall', {
-            // headers: {
-            //     "Content-Type": "application/json",
-            //     "Access-Control-Allow-Origin": "*",
-
-            // }
             crossDomain: true,
             headers: {
                 'Accept': 'application/json',
