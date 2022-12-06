@@ -22,31 +22,3 @@
     color: white;
     background-color: #4D2C57;
 }
-
-.article {
-    padding-left: 100px;
-    padding-right: 100px;
-    padding-top: 40px;
-    font-size: 20px;
-    word-spacing: 10px;
-    line-height: 30px;
-    text-align: justify;
-}
-
-.title {
-    padding-top: 20px;
-    text-align: center;
-}
-
-.img-fluid {
-    margin-bottom: 50px;
-}
-
-.comment {
-    padding: 30px;
-}
-
-.newimage {
-    height: 140px;
-    height: 270px;
-}
