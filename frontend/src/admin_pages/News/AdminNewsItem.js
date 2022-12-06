@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { Button, Comment, Form } from 'semantic-ui-react'
 import newimage from '../../assets/images/newimage.png'
 
 import './style.css'
@@ -21,7 +22,7 @@ const NewsItem=(props)=> {
                         </small>
                     </p>
 
-                    <button onClick={() => navigate(`/News/${id}`)}>READ MORE</button>
+                    <Button content="READ MORE" onClick={() => navigate(`/News/${id}`)}/>
                 </div>
             </div>
         </div>
