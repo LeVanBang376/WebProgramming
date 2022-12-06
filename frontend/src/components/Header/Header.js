@@ -6,11 +6,13 @@ import { Link, NavLink, useNavigate } from 'react-router-dom'
 import { BsCart, BsList, BsPersonCircle, BsSearch } from 'react-icons/bs'
 import { IconContext } from 'react-icons'
 import Dropdown from 'react-bootstrap/Dropdown';
-
+import axios from 'axios'
+const BASE_URL = 'http://localhost/pdo';
 export default function Header() {
     const location = useLocation();
     const initialState = JSON.parse(localStorage.getItem('profile'));
     const [user, setUser] = useState(initialState);
+    const [userInfo, setUserInfo] = useState()
     const navigate = useNavigate();
     useEffect(() => {
         setUser(initialState)
@@ -26,9 +28,31 @@ export default function Header() {
         searchClicked ? setSearchClicked(false) : setSearchClicked(true)
     }
 
+    const getInfo = async (e) => {
+        await axios.get(BASE_URL + '/user', {
+            crossDomain: true,
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                "Authorization": `Bearer ${JSON.parse(localStorage.getItem("profile")).token}`,
+            }
+        })
+            .then((res) => {
+                setUserInfo(res.data.data)
+            })
+            .catch((err) => {
+            })
+    }
+    useEffect(() => {
+        if (user)
+            if (user.role === 'user')
+                getInfo()
+    }, [user])
+
     const handleLogout = () => {
         localStorage.clear()
         setUser(null)
+        setUserInfo(null)
         navigate("/Login")
     }
     return (
@@ -137,7 +161,8 @@ export default function Header() {
                                     </Dropdown.Toggle>
 
                                     <Dropdown.Menu>
-                                        <Dropdown.Item><Link to="/Information" state={user}>Thông tin cá nhân</Link></Dropdown.Item>
+                                        <Dropdown.Item><Link to="/Information" state={userInfo}>Thông tin cá nhân</Link></Dropdown.Item>
+                                        <Dropdown.Item><Link to="/ChangePassword">Đổi mật khẩu</Link></Dropdown.Item>
                                         <Dropdown.Item onClick={handleLogout}>Đăng xuất</Dropdown.Item>
                                     </Dropdown.Menu>
                                 </Dropdown>

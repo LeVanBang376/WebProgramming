@@ -4,7 +4,37 @@ import introductionImg from '../../assets/images/home_introduction.png'
 
 import HomeNews from '../../components/HomeNews/HomeNews'
 import HomeProduct from '../../components/HomeProduct/HomeProduct'
+import axios from 'axios'
+const BASE_URL = 'http://localhost/pdo';
 export default function Home() {
+    const [list, setList] = React.useState([])
+    const newlist = []
+    const [success, setSucess] = React.useState(false)
+    const getNews = async () => {
+        await axios.get(BASE_URL + '/news/getall', {
+            crossDomain: true,
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                "Authorization": `Bearer ${JSON.parse(localStorage.getItem("profile")).token}`,
+            }
+        })
+            .then((res) => {
+                setList(res.data.data)
+                setSucess(true)
+            })
+            .catch((err) => {
+
+            })
+    }
+    const getList = () => {
+        for (let i = 0; i < 3; i++) {
+            newlist.push(<HomeNews />)
+        }
+    }
+    React.useEffect(() => {
+        getNews()
+    }, [success])
     return (
         <div className="container-fluid">
             {/* Bức ảnh full  */}
@@ -33,18 +63,18 @@ export default function Home() {
                     <p>Xem tất cả</p>
                 </div>
                 <hr />
-                <HomeNews />
-                <HomeNews />
-                <HomeNews />
-            </div>
+                {/* {list.slice(-2).map(item => {
+                    <HomeNews />
+                })} */}
 
-            {/* Sản phẩm bán chạy */}
-            <div className='row p-5'>
-                <div className='col-3'>
-                    <HomeProduct />
+
+                {/* Sản phẩm bán chạy */}
+                <div className='row p-5'>
+                    <div className='col-3'>
+                        <HomeProduct />
+                    </div>
                 </div>
             </div>
-        </div>
-
+        </div >
     )
 }

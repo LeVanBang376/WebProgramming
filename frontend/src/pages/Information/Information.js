@@ -1,6 +1,6 @@
 import React from 'react'
 import { Button } from 'react-bootstrap'
-import { useLocation, useNavigate } from "react-router-dom"
+import { Link, useLocation, useNavigate } from "react-router-dom"
 export default function Information() {
   const location = useLocation()
   const navigate = useNavigate()
@@ -12,16 +12,17 @@ export default function Information() {
           <div class="col-12 col-lg-9 col-xl-7">
             <div class="card shadow-2-strong card-registration">
               <div class="card-body p-4 p-md-5">
-                <Button onClick={() => navigate(-1)}>Quay lại</Button>
+                <div className='d-flex justify-content-between'>
+                  <Button onClick={() => navigate(-1)}>Quay lại</Button>
+                  <Link to="/ChangeInformation" state={user} className="btn btn-success text-light">Sửa đổi</Link>
+                </div>
                 <h2 className='mt-4 mb-5 '>Thông tin người dùng</h2>
-                <h4>Tên đăng nhập: {user.username}</h4>
                 <h4>Họ tên: {user.fullname}</h4>
                 <h4>Số điện thoại: {user.phone_number}</h4>
                 <h4>Email: {user.email}</h4>
                 <h4>Địa chỉ: {user.address}</h4>
                 <h4>Giới tính: {user.gender}</h4>
                 <h4>Ngày sinh: {user.dateofbirth}</h4>
-
               </div>
             </div>
           </div>

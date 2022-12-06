@@ -8,7 +8,8 @@ export default function ManageUsers() {
     const userInfo = { user_id: '', username: '', fullname: '', phone_number: '', address: '', avatar: '', gender: '', dateofbirth: '', email: '' };
     const [list, setList] = useState([])
     const [err, setErr] = useState('');
-    const [userID, setUserID] = useState('')
+    const [userID, setUserID] = useState()
+
 
     const getUsers = async (e) => {
         await axios.get(BASE_URL + '/user/getall', {
@@ -38,19 +39,24 @@ export default function ManageUsers() {
     })
 
     const deleteUser = async (e) => {
-        await axios.delete(BASE_URL + '/auth/kill', { id: "18" }, {
+        await axios.delete(BASE_URL + '/auth/kill', {
             crossDomain: true,
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
                 "Authorization": `Bearer ${JSON.parse(localStorage.getItem("profile")).token}`,
-            }
+            },
+            data: { id: userID }
         })
             .then((res) => { alert("Success!!") })
             .catch((err) => {
                 setErr(err.response.data.message)
             })
     }
+
+    React.useEffect(() => {
+        deleteUser()
+    }, [userID])
 
     return (
         <div className='container-fluid pt-5 pb-5'>
@@ -69,7 +75,9 @@ export default function ManageUsers() {
                             <th scope="row">{userInfo.user_id}</th>
                             <td><Link to="/Admin/UserDetail/17" state={userInfo} className='colour'>{userInfo.username}</Link></td>
                             <td>
-                                <button type="button" class="btn btn-danger" onClick={() => { setUserID(userInfo.user_id); deleteUser() }}>Xóa</button>
+                                <button type="button" class="btn btn-danger" onClick={() => {
+                                    setUserID(userInfo.user_id)
+                                }}>Xóa</button>
                             </td>
                         </tr>
                     ))}

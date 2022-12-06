@@ -9,11 +9,14 @@ import Cart from '../pages/Cart/Cart'
 import Signup from '../pages/Signup/Signup'
 import Information from '../pages/Information/Information'
 import Products from '../pages/Products/Products'
+import ChangePassword from '../pages/ChangePassword/ChangePassword'
+import ChangeInformation from '../pages/ChangeInformation/ChangeInformation'
 
 import AdminHome from '../admin_pages/Home/Home'
 import AdminIntroduction from '../admin_pages/Introduction/Introduction'
 import ManageUsers from '../admin_pages/ManageUsers/ManageUsers'
 import UserDetail from '../admin_pages/UserDetail/UserDetail'
+import Checkout from '../pages/Checkout/Checkout'
 export default function Routers() {
     return (
         < Routes >
@@ -25,8 +28,11 @@ export default function Routers() {
             <Route path="/Contact" element={<Contact />} />
             <Route path="/Login" element={<Login />} />
             <Route path="/Cart" element={<Cart />} />
+            <Route path="/Checkout" element={<Checkout />} />
             <Route path="/Signup" element={<Signup />} />
             <Route path="/Information" element={<Information />} />
+            <Route path="/ChangePassword" element={<ChangePassword />} />
+            <Route path="/ChangeInformation" element={<ChangeInformation />} />
             {/* Admin */}
             <Route path="/Admin/" element={<AdminHome />} />
             <Route path="/Admin/Introduction" element={<AdminIntroduction />} />

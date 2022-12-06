@@ -1,0 +1,11 @@
+.container .error1 {
+    display: none;
+}
+
+.container .error2 {
+    color: red;
+}
+
+.container .success {
+    color: green
+}

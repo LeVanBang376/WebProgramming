@@ -233,7 +233,6 @@ export default function Signup() {
                                             </div>
 
                                             <div class="d-flex flex-row align-items-center mb-4">
-
                                                 <div class="form-outline flex-fill mb-0">
                                                     <label class="form-label" for="avatar">Ảnh đại diện</label>
                                                     <input type="text" id="avatar" class="form-control" name="avatar" value={form.avatar} onChange={handleChange} />
