@@ -1,20 +1,42 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Image from '../../assets/images/home_introduction.png'
-export default function HomeNews() {
+import './styles.css'
+import Modal from 'react-bootstrap/Modal';
+import { Button } from 'react-bootstrap'
+import parse from "html-react-parser";
+export default function HomeNews(props) {
+    const [title, setTitle] = React.useState("")
+    const [newContent, setNewContent] = React.useState("")
+    const [show, setShow] = useState(false);
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
     return (
-        <div class="card mb-3 maxW">
-            <div class="row g-0 pt-2 pb-2">
-                <div class="col-md-4 d-flex align-items-center">
-                    <img src={Image} class="img-fluid rounded-start" alt="..." />
-                </div>
-                <div class="col-md-8">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+        <>
+            <Modal show={show} onHide={handleClose}>
+                <Modal.Header closeButton>
+                    <Modal.Title>{title}</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>{parse(newContent)}</Modal.Body>
+                <Modal.Footer>
+                    <Button variant="secondary" onClick={handleClose}>
+                        Close
+                    </Button>
+                </Modal.Footer>
+            </Modal>
+            <div class="card mb-3 maxW cur" onClick={() => { setTitle(props.title); setNewContent(props.content); handleShow() }}>
+                <div class="row g-0 pt-2 pb-2">
+                    <div class="col-md-4 d-flex align-items-center">
+                        <img src={Image} class="img-fluid rounded-start" alt="..." />
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title" >{props.title}</h5>
+                            <p class="card-text">{props.content}</p>
+                            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </>
     )
 }

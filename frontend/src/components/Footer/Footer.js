@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import "./styles.css"
 import logoBe from '../../assets/images/be.png'
 import logoCod from '../../assets/images/cod.png'
@@ -9,12 +9,12 @@ import logoVt from '../../assets/images/viettel.png'
 import logoVs from '../../assets/images/visa.png'
 import logoVn from '../../assets/images/vnpost.png'
 
-
 export default function Footer() {
+
     return (
         <div className="footer">
             <div className="footer__information">
-                <div className="footer__ContactInfo">
+                <div className="footer__ContactInfo ">
                     <h3>Contact Info</h3>
                     <p>
                         <i className="fa fa-map-marker" aria-hidden="true"></i> 268 Lý Thường Kiệt, phường 14, quận 10, TP.Hồ

@@ -1,0 +1,8 @@
+.cur {
+    cursor: pointer;
+
+}
+
+.cur:hover {
+    transform: scale(1.01);
+}

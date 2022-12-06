@@ -2,6 +2,7 @@ import React from 'react'
 import './styles.css'
 import heroImage from "../../assets/images/heroimage.jpg"
 import axios from 'axios'
+import parse from "html-react-parser";
 const BASE_URL = 'http://localhost/pdo';
 export default function Introduction() {
     const [content, setContent] = React.useState("")
@@ -36,7 +37,7 @@ export default function Introduction() {
             </div>
             <div className='container p-5'>
                 <h2 className='pb-4'>Về chúng tôi</h2>
-                <p>{content}</p>
+                {parse(content)}
             </div>
             <div className='container-fluid bgColor'>
                 <h1 className='col-12 text-center p-5'>Những người đồng sáng lập</h1>

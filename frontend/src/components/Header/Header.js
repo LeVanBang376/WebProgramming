@@ -66,7 +66,7 @@ export default function Header() {
                             </IconContext.Provider>
                         </button>
                     </div>
-                    <div className='col-xxl-3 col-xl-2 col-lg-2 col-10 d-flex justify-content-center'>
+                    <div className='col-xxl-3 col-xl-2 col-lg-2 col-10 d-flex justify-content-center mt-3'>
                         {!user ?
                             (<Link className='logoName' to="/" exact="true" >
                                 Nhóm 1

@@ -4,6 +4,7 @@ import heroImage from "../../assets/images/heroimage.jpg"
 import Modal from 'react-bootstrap/Modal'
 import { Button } from 'react-bootstrap'
 import axios from 'axios'
+import parse from "html-react-parser";
 const BASE_URL = 'http://localhost/pdo';
 let globalContent = ""
 export default function Introduction() {
@@ -91,7 +92,7 @@ export default function Introduction() {
             <div className='container p-5'>
                 <Button onClick={() => { setTitle("Về chúng tôi"); handleShow() }} variant="secondary">Sửa</Button>
                 <h2 className='pb-4'>Về chúng tôi</h2>
-                <p>{content}</p>
+                {parse(content)}
             </div>
             <div className='container-fluid bgColor'>
                 <h1 className='col-12 text-center p-5'>Những người đồng sáng lập</h1>

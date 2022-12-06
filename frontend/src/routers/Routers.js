@@ -17,6 +17,7 @@ import AdminIntroduction from '../admin_pages/Introduction/Introduction'
 import ManageUsers from '../admin_pages/ManageUsers/ManageUsers'
 import UserDetail from '../admin_pages/UserDetail/UserDetail'
 import Checkout from '../pages/Checkout/Checkout'
+import AdminContact from '../admin_pages/Contact/Contact'
 export default function Routers() {
     return (
         < Routes >
@@ -39,6 +40,7 @@ export default function Routers() {
             <Route path="/Admin/Login" element={<Login />} />
             <Route path="/Admin/ManageUsers" element={<ManageUsers />} />
             <Route path="/Admin/UserDetail/:userID" element={<UserDetail />} />
+            <Route path="/Admin/Contact" element={<AdminContact />} />
         </Routes >
     )
 }

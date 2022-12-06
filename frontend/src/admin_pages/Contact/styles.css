@@ -1,0 +1,41 @@
+.fit {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+
+    width: 100%;
+}
+
+.Contact .slider {
+    background: url('../../assets/images/slider_contact.webp') top center / cover no-repeat;
+    height: 20rem;
+    padding-top: 130px;
+    letter-spacing: 8px;
+}
+
+.Contact .container {
+    margin-top: 2rem;
+    font-size: 18px;
+    margin-bottom: 40px;
+}
+
+.Contact .container h2,
+.container p {
+    color: #4D2C57;
+}
+
+.Contact .collaboration {
+    margin-top: 4rem;
+}
+
+.Contact .btn {
+    margin-top: 10px;
+    border: 2px solid #4D2C57;
+    padding: 10px 36px 10px 36px;
+    border-radius: 0;
+}
+
+.Contact .btn:hover {
+    color: white;
+    background-color: #4D2C57;
+}
