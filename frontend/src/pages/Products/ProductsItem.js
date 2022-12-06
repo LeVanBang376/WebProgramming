@@ -1,12 +1,28 @@
 import { ProductList } from "../Cart/Cart";
+import { useNavigate } from 'react-router-dom';
 
 var cart_ID = 0;
 
 const Item=({item_id ,name, desc, img, price})=> {
+    const navigate = useNavigate();
+    // const isAdmin = (JSON.parse(localStorage.getItem('profile')).role);\
+    var str = '';
+    const isAdmin = JSON.parse(localStorage.getItem('profile'));             
+    if (isAdmin) {
+        if (isAdmin.role === 'admin') {
+            str = '/Admin/Products/' + item_id;
+        }
+        else {  
+        str = '/Products/' + item_id;
+        }
+    }
+    else {
+        str = '/Products/' + item_id;
+    }
     return (
         <div className="my-3">
             <div className="card"> 
-                <a href="#"><img src={img} className="card-img-top" alt="..."/></a>
+                <img src={img} className="card-img-top" alt="..." role="button" onClick={()=>navigate(str)}/>
                 <div className="card-body"> 
                     <h5 className="card-title">{name}</h5>
                     <p className="card-text">{desc}</p>
@@ -22,24 +38,6 @@ const Item=({item_id ,name, desc, img, price})=> {
     );
 }
 
-
-// const Item = ({item_id ,name, desc, img, price}) => {
-//     return (
-//         <div className="col-sm-6 col-md-5 col-lg-4 item">
-//             <div className="box">
-//                 <img className="rounded img-fluid product-img" src={img} alt={"product"}/>
-//                 <h3 className="name">{name}</h3>
-//                 <p className="description">{desc}</p>
-//                 <div className="d-flex justify-content-around align-items-center">
-//                     <span className="badge rounded-pill bg-danger price">{String(price).replace(/\B(?=(\d{3})+(?!\d))/g, ",") + ' VND'}</span>
-//                     <button className="btn btn-success" type="button" onClick={() => { addItem(item_id ,name, price, img); alert("Đã thêm " + name + " vô giỏ hàng của bạn!") }}>
-//                         Thêm vào giỏ
-//                     </button>
-//                 </div>
-//             </div>
-//         </div>
-//     );
-// };
 
 function addItem(item_id ,name, price, img) {
     //adding item to cart
