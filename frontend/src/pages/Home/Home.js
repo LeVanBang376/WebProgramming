@@ -99,7 +99,7 @@ export default function Home() {
                     <Link to="/News">Xem tất cả</Link>
                 </div>
                 <hr />
-                {list ? list.slice(-3).map(item => <HomeNews title={item.title} content={item.content} />) : null}
+                {list ? list.slice(-3).map(item => <HomeNews title={item.title} content={item.content} thumbnail={item.thumbnail} />) : null}
             </div>
 
             <div className='row p-5 bg-light'>
