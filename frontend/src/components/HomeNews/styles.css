@@ -1,8 +1,21 @@
 .cur {
     cursor: pointer;
-
 }
 
 .cur:hover {
     transform: scale(1.01);
+}
+
+@media only screen and (min-width: 768px) {
+    .cur {
+        cursor: pointer;
+        max-height: 200px;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .cur {
+        cursor: pointer;
+        max-height: 300px;
+    }
 }

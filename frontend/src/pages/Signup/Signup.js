@@ -170,7 +170,6 @@ export default function Signup() {
                                             </div>
 
                                             <div class="d-flex flex-row align-items-center mb-4">
-
                                                 <div class="form-outline flex-fill mb-0">
                                                     <label class="form-label" for="reType">Nhập lại mật khẩu</label>
                                                     <input type="password" id="reType" class="form-control" onChange={(e) => { setRetypePassword(e.target.value); setRetypePasswordVisible(false) }} />
